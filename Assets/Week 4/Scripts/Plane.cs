@@ -107,4 +107,9 @@ public class Plane : MonoBehaviour
     {
         spriteRenderer.color = Color.white;
     }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }
