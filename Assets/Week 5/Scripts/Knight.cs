@@ -39,7 +39,7 @@ public class Knight : MonoBehaviour
         {
             destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && health > 0)
         {
             Attack();
         }
