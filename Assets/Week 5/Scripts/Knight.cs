@@ -21,6 +21,13 @@ public class Knight : MonoBehaviour
         animator = GetComponent<Animator>();
         health = PlayerPrefs.GetFloat("KnightHealth", maxHealth);
         SendMessage("SetHealthBar", PlayerPrefs.GetFloat("KnightHealth"));
+
+        //added after Task 3. If knight is dead at start of scene, starts with death animation and status.
+        if (health == 0)
+        {
+            isDead = true;
+            animator.SetTrigger("Death");
+        }
     }
 
     private void FixedUpdate()
