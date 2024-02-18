@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 1879191883}
   - component: {fileID: 1879191887}
   - component: {fileID: 1879191888}
+  - component: {fileID: 1879191889}
   m_Layer: 0
   m_Name: plane
   m_TagString: Untagged
@@ -342,6 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  damageTaken: 0
 --- !u!95 &1879191888
 Animator:
   serializedVersion: 5
@@ -363,6 +365,62 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &1879191889
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879191882}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.10368842, y: 0.5951915}
+      - {x: -0.16778994, y: 0.043540955}
+      - {x: -0.4265661, y: 0.047193766}
+      - {x: -0.5015862, y: 0.19398308}
+      - {x: -0.5087867, y: -0.20607996}
+      - {x: -0.42498425, y: -0.04058504}
+      - {x: -0.16849202, y: -0.033560276}
+      - {x: -0.09072232, y: -0.580791}
+      - {x: 0.030677497, y: -0.58381176}
+      - {x: 0.1782856, y: 0.0028829575}
+      - {x: 0.03499502, y: 0.59519124}
+  m_UseDelaunayMesh: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
