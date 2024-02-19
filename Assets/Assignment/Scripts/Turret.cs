@@ -11,6 +11,7 @@ public class Turret : MonoBehaviour
     public Transform spawn;
     float timer;
     float health = 3;
+    public GameObject scoreCounter;
 
     void Start()
     {
@@ -31,6 +32,8 @@ public class Turret : MonoBehaviour
 
         if (health <= 0)
         {
+            scoreCounter.GetComponent<ScoreCounter>().scoreCount++;
+            GameObject.Find("SceneManager").GetComponent<SceneManager1>().turretsDestroyed++;
             Destroy(gameObject);
         }
     }

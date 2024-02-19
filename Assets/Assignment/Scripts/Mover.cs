@@ -14,6 +14,7 @@ public class Mover : MonoBehaviour
     Animator animator;
     public int health = 3;
     public Slider slider;
+    public GameObject scoreCounter;
 
     private void Start()
     {
@@ -61,6 +62,9 @@ public class Mover : MonoBehaviour
     {
         //Player loses 1 hp (3 max) when function is called.
         health--;
+
+        //Player loses 1 score when they take damage.
+        scoreCounter.GetComponent<ScoreCounter>().scoreCount--;
 
         //Updates healthbar to match.
         slider.value = health;

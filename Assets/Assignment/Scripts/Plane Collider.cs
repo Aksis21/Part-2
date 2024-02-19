@@ -27,7 +27,7 @@ public class PlaneCollider : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "missile enemy")
+        if (collision.gameObject.tag == "missile enemy" && GameObject.Find("plane").GetComponent<Mover>().health > 0)
         {
             if (lerpCount > 0)
             {
