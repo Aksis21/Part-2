@@ -54,12 +54,6 @@ public class Mover : MonoBehaviour
         {
             animator.SetTrigger("Firing");
         }
-
-        //PLACEHOLDER - TAKE DAMAGE ON RIGHT MOUSE BUTTON
-        if (Input.GetMouseButtonDown(1))
-        {
-            takeDamage();
-        }
     }
 
     //Function performs all necessary tasks when plane takes damage.
