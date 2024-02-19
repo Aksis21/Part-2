@@ -11,6 +11,7 @@ public class PlaneCollider : MonoBehaviour
     SpriteRenderer sr;
     public Color startcol;
     public Color endcol;
+    int lerpCount = 2;
 
     void Start()
     {
@@ -26,9 +27,17 @@ public class PlaneCollider : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.gameObject.tag == "missile")
-        lerpTimer = 0;
-        SendMessage("takeDamage");
+        if (collision.gameObject.tag == "missile enemy")
+        {
+            if (lerpCount > 0)
+            {
+                lerpTimer = 0;
+            }
+            //lerpCount exists to constrain the Lerp color animation to only play two times. This prevents the death effect from
+            //flashing red like the first two hits of damage.
+            lerpCount--;
+            SendMessage("takeDamage");
+        }
     }
 
 }

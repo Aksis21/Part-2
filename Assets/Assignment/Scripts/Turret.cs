@@ -10,6 +10,7 @@ public class Turret : MonoBehaviour
     public GameObject missile;
     public Transform spawn;
     float timer;
+    float health = 3;
 
     void Start()
     {
@@ -26,6 +27,19 @@ public class Turret : MonoBehaviour
         {
             Instantiate(missile, spawn.position, spawn.rotation);
             timer = Random.Range(2,5);
+        }
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "missile friend")
+        {
+            health--;
         }
     }
 }

@@ -7,6 +7,8 @@ TagManager:
   - plane
   - runway
   - Knight
+  - missile enemy
+  - missile friend
   layers:
   - Default
   - TransparentFX
