@@ -12,17 +12,19 @@ public class Mover : MonoBehaviour
     Rigidbody2D rb;
     public float speed = 5f;
     Animator animator;
-    public int damageTaken = 0;
+    public int health = 3;
+    public Slider slider;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        slider.value = 3;
     }
 
     private void FixedUpdate()
     {
-        if (damageTaken >= 3) return;
+        if (health <= 0) return;
 
         movement = destination - (Vector2)transform.position;
 
@@ -38,7 +40,7 @@ public class Mover : MonoBehaviour
     {
         /*Player is dead after taking 3 hits. This ensures that death effects/animations do not update position/rotation or
         allow player to keep firing after death.*/
-        if (damageTaken >= 3) return;
+        if (health <= 0) return;
 
         //sets destination to mouse position. Will be used in multiple places later on.
         destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -48,7 +50,7 @@ public class Mover : MonoBehaviour
         transform.right = rotator;
 
         //Player fires whenever main mouse button is pressed
-        if (Input.GetMouseButtonDown(0) && damageTaken < 3)
+        if (Input.GetMouseButtonDown(0) && health > 0)
         {
             animator.SetTrigger("Firing");
         }
@@ -56,20 +58,33 @@ public class Mover : MonoBehaviour
         //PLACEHOLDER - TAKE DAMAGE ON RIGHT MOUSE BUTTON
         if (Input.GetMouseButtonDown(1))
         {
-            damageTaken++;
+            takeDamage();
         }
+    }
 
-        if (damageTaken == 1)
+    //Function performs all necessary tasks when plane takes damage.
+    void takeDamage()
+    {
+        //Player loses 1 hp (3 max) when function is called.
+        health--;
+
+        //Updates healthbar to match.
+        slider.value = health;
+
+        //Updates from base state to "damage 1" state in animator.
+        if (health == 2)
         {
             animator.SetBool("Damage 1", true);
         }
 
-        if (damageTaken == 2)
+        //Updates from "damage 1" state to "damage 2" state in animator.
+        if (health == 1)
         {
             animator.SetBool("Damage 2", true);
         }
 
-        if (damageTaken == 3)
+        //Updates from "damage 2" state to "dead" state in animator.
+        if (health == 0)
         {
             animator.SetBool("Dead", true);
         }
