@@ -10,16 +10,14 @@ public class ScoreBoard : MonoBehaviour
     public TMP_Text highScore;
     public TMP_Text currentScore;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
         currentScore.text = PlayerPrefs.GetInt("currentScore").ToString();
         highScore.text = PlayerPrefs.GetInt("highScore").ToString();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void resetScore()
     {
-        
+        PlayerPrefs.SetInt("highScore", 0);
     }
 }
