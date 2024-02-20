@@ -20,11 +20,13 @@ public class Mover : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        //Ensures health bar always starts at full.
         slider.value = 3;
     }
 
     private void FixedUpdate()
     {
+        //Prevents player from moving if dead.
         if (health <= 0) return;
 
         movement = destination - (Vector2)transform.position;

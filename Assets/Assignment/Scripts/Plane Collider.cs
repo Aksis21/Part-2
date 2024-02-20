@@ -21,6 +21,7 @@ public class PlaneCollider : MonoBehaviour
 
     void Update()
     {
+        //Lerp animation causes plane to flash red upon taking damage.
         float interpolation = animationCurve.Evaluate(lerpTimer);
         lerpTimer += Time.deltaTime;
         sr.color = Color.Lerp(startcol, endcol, interpolation);

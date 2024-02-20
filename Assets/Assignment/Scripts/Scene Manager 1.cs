@@ -16,13 +16,17 @@ public class SceneManager1 : MonoBehaviour
     {
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
+        //Stores the "scoreCount" variable into a local int to be used below - not really necessary, just tidies
+        //up the lower code a bit.
         yourScore = GameObject.Find("Score Count").GetComponent<ScoreCounter>().scoreCount;
 
+        //When all 5 turrets are destroyed, begins the countdown to the menu scene loading.
         if (turretsDestroyed >= 5)
         {
             timer -= Time.deltaTime;
         }
 
+        //When the plane is destroyed, begins countdown to menu scene loading.
         if (GameObject.Find("plane").GetComponent<Mover>().health <= 0)
         {
             timer -= Time.deltaTime;
@@ -36,7 +40,10 @@ public class SceneManager1 : MonoBehaviour
 
     void loadNextScene()
     {
+        //Updates the currentScore pref to the player's final score at the end of the game.
         PlayerPrefs.SetInt("currentScore", yourScore);
+
+        //If the player's score was greater than the recorded high score, updates it to the player's score.
         if (yourScore > PlayerPrefs.GetInt("highScore"))
         {
             PlayerPrefs.SetInt("highScore", yourScore);

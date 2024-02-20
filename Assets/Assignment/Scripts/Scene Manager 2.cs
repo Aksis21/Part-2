@@ -9,6 +9,7 @@ public class SceneManager2 : MonoBehaviour
 {
     void Update()
     {
+        //Begins the game upon pressing SPACE while in the menu scene.
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         if (Input.GetKeyDown(KeyCode.Space))
         {

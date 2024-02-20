@@ -12,12 +12,14 @@ public class ScoreBoard : MonoBehaviour
 
     private void Update()
     {
+        //Sets the displayed text to the value of the held score int's.
         currentScore.text = PlayerPrefs.GetInt("currentScore").ToString();
         highScore.text = PlayerPrefs.GetInt("highScore").ToString();
     }
 
     public void resetScore()
     {
+        //When RESET button is pressed, sets the saved High Score int to zero.
         PlayerPrefs.SetInt("highScore", 0);
     }
 }

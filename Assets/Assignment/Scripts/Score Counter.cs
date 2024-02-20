@@ -9,15 +9,17 @@ public class ScoreCounter : MonoBehaviour
 {
     public TMP_Text scoreText;
     public int scoreCount;
-    // Start is called before the first frame update
+
     void Start()
     {
+        //Always starts the player's score at 0 when beginning the game. Externally, this integer will be
+        //updated multiple times in each game.
         scoreCount = 0;
-        scoreText.text = scoreCount.ToString();
     }
 
     void Update()
     {
+        //Displays the current score in the bottom-left of the game screen.
         scoreText.text = scoreCount.ToString();
     }
 }
