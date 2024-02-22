@@ -12,6 +12,7 @@ public class GoalkeeperController : MonoBehaviour
     Vector2 distanceFromGoal;
     public float distance;
     public float goalRad;
+    public float speed;
 
     // Update is called once per frame
     void Update()
@@ -27,11 +28,11 @@ public class GoalkeeperController : MonoBehaviour
     {
         if (distance/2 < goalRad)
         {
-            goalie.position = (Vector2)transform.position - direction * (distance/2);
+            goalie.position = Vector2.MoveTowards(goalie.position, (Vector2)transform.position - direction * (distance/2), speed * Time.deltaTime);
         }
         else
         {
-            goalie.position = (Vector2)transform.position - direction * goalRad;
+            goalie.position = Vector2.MoveTowards(goalie.position, (Vector2)transform.position - direction * goalRad, speed * Time.deltaTime);
         }
     }
 }
