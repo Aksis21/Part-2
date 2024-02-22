@@ -7,12 +7,15 @@ using UnityEngine;
 public class SoccerPlayer : MonoBehaviour
 {
     SpriteRenderer sr;
+    Rigidbody2D rb;
+    public float speed = 500;
     public Color selectedCol;
     public Color unselectedCol;
     // Start is called before the first frame update
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnMouseDown()
@@ -31,5 +34,10 @@ public class SoccerPlayer : MonoBehaviour
         {
             sr.color = unselectedCol;
         }
+    }
+
+    public void Move(Vector2 direction)
+    {
+        rb.AddForce(direction * speed);
     }
 }

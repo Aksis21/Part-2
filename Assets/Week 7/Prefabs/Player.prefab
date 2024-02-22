@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99d85cce6c225945b985a643ea1119f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1000
   selectedCol: {r: 0.8352941, g: 0, b: 1, a: 1}
   unselectedCol: {r: 0.50980395, g: 0, b: 0, a: 1}
 --- !u!212 &1961388549489649160
@@ -115,7 +116,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 2
-  m_LinearDrag: 4
+  m_LinearDrag: 3
   m_AngularDrag: 3
   m_GravityScale: 0
   m_Material: {fileID: 0}
