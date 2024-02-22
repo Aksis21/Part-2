@@ -43,7 +43,6 @@ public class Controller : MonoBehaviour
 
     void Update()
     {
-
         scoreText.text = score.ToString();
 
         if (selectedPlayer == null) return;
