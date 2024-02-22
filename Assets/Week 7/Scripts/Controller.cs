@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Controller : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class Controller : MonoBehaviour
     public float maxCharge = 1f;
     Vector2 direction;
     public static SoccerPlayer selectedPlayer { get; private set; }
+    public static int score;
+    public TMP_Text scoreText;
+
     public static void SetSelectedPlayer(SoccerPlayer player)
     {
         if(selectedPlayer != null)
@@ -19,6 +23,11 @@ public class Controller : MonoBehaviour
         }
         selectedPlayer = player;
         player.selected(true);
+    }
+
+    public static void SetScore()
+    {
+        score++;
     }
 
     void FixedUpdate()
@@ -34,6 +43,9 @@ public class Controller : MonoBehaviour
 
     void Update()
     {
+
+        scoreText.text = score.ToString();
+
         if (selectedPlayer == null) return;
 
         if(Input.GetKeyDown(KeyCode.Space))
