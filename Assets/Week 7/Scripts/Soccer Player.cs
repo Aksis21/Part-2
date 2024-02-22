@@ -15,15 +15,9 @@ public class SoccerPlayer : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnMouseDown()
     {
-        selected(true);
+        Controller.SetSelectedPlayer(this);
     }
 
     //You gave me fred. You did this.
