@@ -22,4 +22,9 @@ public class ScoreBoard : MonoBehaviour
         //When RESET button is pressed, sets the saved High Score int to zero.
         PlayerPrefs.SetInt("highScore", 0);
     }
+
+    public void endGame()
+    {
+        Application.Quit();
+    }
 }
